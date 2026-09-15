@@ -181,17 +181,31 @@ summary {
 
 :root {
   --color-text-primary: #403F3D;
-  --color-text-accent: #B0907A;
   --color-text-inverse: #E1D4C9;
-  --color-bg-primary: #E1D4C9;
+  --color-text-accent: #B0907A;
+  --color-bg-page: #E1D4C9;
+  --color-bg-container: #665F55;
+  --color-bg-overlay: rgba(64, 63, 61, 0.8);
   --color-border-primary: #C1B6AD;
-  --color-dark-border-primary: #665F55;
+  --color-border-inverse: #665F55;
+}
+
+[data-theme=dark] {
+  --color-text-primary: #E1D4C9;
+  --color-text-inverse: #E1D4C9;
+  --color-text-accent: #B0907A;
+  --color-bg-page: #292826;
+  --color-bg-container: #403F3D;
+  --color-bg-overlay: rgba(41, 40, 38, 0.8);
+  --color-border-primary: #665F55;
+  --color-border-inverse: #C1B6AD;
 }
 
 body {
   font-family: "Inter", sans-serif;
   color: var(--color-text-primary);
-  background: var(--color-bg-primary);
+  background: var(--color-bg-page);
+  transition: 0.5s;
 }
 
 a,
@@ -271,7 +285,7 @@ button {
   cursor: pointer;
 }
 .theme-label:hover .theme-option__inactive {
-  background: var(--color-dark-border-primary);
+  background: var(--color-border-inverse);
 }
 .theme-label:hover .theme-img {
   color: var(--color-text-inverse);
@@ -298,8 +312,6 @@ button {
 .menu-link {
   position: relative;
   margin: 0 0 0 24px;
-  padding: 0 24px 0 0;
-  background: url(../img/svg/coffee-cup.svg) 100% 0 no-repeat;
 }
 .menu-link::after {
   content: "";
@@ -314,4 +326,7 @@ button {
 .menu-link:hover::after {
   left: 0;
   width: 100%;
+}
+.menu-img {
+  margin: 0 0 0 8px;
 }

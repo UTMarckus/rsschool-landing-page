@@ -65,7 +65,7 @@
 
     &:hover {
       .theme-option__inactive {
-        background: var(--color-dark-border-primary)
+        background: var(--color-border-inverse)
       }
 
       .theme-img {
@@ -96,27 +96,31 @@
   }
 }
 
-.menu-link {
-  position: relative;
-  margin: 0 0 0 24px;
-  padding: 0 24px 0 0;
-  background: url(../img/svg/coffee-cup.svg) 100% 0 no-repeat;
+.menu {
+  &-link {
+    position: relative;
+    margin: 0 0 0 24px;
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background: var(--color-text-primary);
-    transition: all 0.5s ease;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-text-primary);
+      transition: all 0.5s ease;
+    }
+
+    &:hover {
+      &::after {
+        left: 0;
+        width: 100%;
+      }
+    }
   }
 
-  &:hover {
-    &::after {
-      left: 0;
-      width: 100%;
-    }
+  &-img {
+    margin: 0 0 0 8px;
   }
 }

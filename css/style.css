@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 /*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document
@@ -176,4 +177,141 @@ Add the correct display in Chrome and Safari.
 */
 summary {
   display: list-item;
+}
+
+:root {
+  --color-text-primary: #403F3D;
+  --color-text-accent: #B0907A;
+  --color-text-inverse: #E1D4C9;
+  --color-bg-primary: #E1D4C9;
+  --color-border-primary: #C1B6AD;
+  --color-dark-border-primary: #665F55;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+}
+
+a,
+button {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.main-title {
+  display: none;
+}
+
+.container {
+  width: 1360px;
+  margin: 0 auto;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-container {
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo {
+  width: 100px;
+  height: 60px;
+}
+.logo-img {
+  width: 100%;
+}
+
+.nav {
+  width: 100%;
+}
+.nav-list {
+  justify-content: center;
+}
+.nav-item {
+  margin: 0 20px;
+  list-style-type: none;
+}
+.nav-link {
+  display: inline-block;
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-text-primary);
+  transition: all 0.5s ease;
+}
+.nav-link:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+.theme-checkbox {
+  display: none;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+}
+.theme-label {
+  border: 2px solid var(--color-border-primary);
+  border-radius: 22px;
+  cursor: pointer;
+}
+.theme-label:hover .theme-option__inactive {
+  background: var(--color-dark-border-primary);
+}
+.theme-label:hover .theme-img {
+  color: var(--color-text-inverse);
+}
+.theme-option {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin: 4px;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+.theme-option__active {
+  background: var(--color-text-accent);
+}
+.theme-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+.menu-link {
+  position: relative;
+  margin: 0 0 0 24px;
+  padding: 0 24px 0 0;
+  background: url(../img/svg/coffee-cup.svg) 100% 0 no-repeat;
+}
+.menu-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-text-primary);
+  transition: all 0.5s ease;
+}
+.menu-link:hover::after {
+  left: 0;
+  width: 100%;
 }

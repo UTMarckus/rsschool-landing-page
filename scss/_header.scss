@@ -1,0 +1,122 @@
+.header {
+  &-container {
+    align-items: center;
+    padding: 20px 0;
+  }
+}
+
+.logo {
+  width: 100px;
+  height: 60px;
+
+  &-img {
+    width: 100%;
+  }
+}
+
+.nav {
+  width: 100%;
+
+  &-list {
+    justify-content: center;
+  }
+
+  &-item {
+    margin: 0 20px;
+    list-style-type: none;
+  }
+
+  &-link {
+    display: inline-block;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-text-primary);
+      transition: all 0.5s ease;
+    }
+
+    &:hover {
+      &::after {
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.theme {
+
+  &-checkbox {
+    display: none;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  &-label {
+    border: 2px solid var(--color-border-primary);
+    border-radius: 22px;
+    cursor: pointer;
+
+    &:hover {
+      .theme-option__inactive {
+        background: var(--color-dark-border-primary)
+      }
+
+      .theme-img {
+        color: var(--color-text-inverse);
+      }
+    }
+  }
+
+  &-option {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    margin: 4px;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    
+    &__active {
+      background: var(--color-text-accent);
+    }
+  }
+
+  &-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+  }
+}
+
+.menu-link {
+  position: relative;
+  margin: 0 0 0 24px;
+  padding: 0 24px 0 0;
+  background: url(../img/svg/coffee-cup.svg) 100% 0 no-repeat;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-text-primary);
+    transition: all 0.5s ease;
+  }
+
+  &:hover {
+    &::after {
+      left: 0;
+      width: 100%;
+    }
+  }
+}

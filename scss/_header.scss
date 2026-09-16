@@ -2,27 +2,34 @@
   &-container {
     align-items: center;
     padding: 20px 0;
+
+    @media (max-width: 768px) {
+      justify-content: space-between;
+    }
   }
 }
 
 .logo {
+  display: block;
   width: 100px;
   height: 60px;
 
-  &-img {
-    width: 100%;
-  }
 }
 
 .nav {
   width: 100%;
 
+  @media (max-width: 768px) {
+    display: none;
+  }
+
   &-list {
     justify-content: center;
+    padding: 0;
   }
 
   &-item {
-    margin: 0 20px;
+    margin: 0 2%;
     list-style-type: none;
   }
 
@@ -51,6 +58,10 @@
 }
 
 .theme {
+
+  @media (max-width: 768px) {
+    margin: 0 0 0 auto;
+  }
 
   &-checkbox {
     display: none;
@@ -101,6 +112,21 @@
     position: relative;
     margin: 0 0 0 24px;
 
+    &__pc {
+      
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &__mobile {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: inline-block;
+      }
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -123,5 +149,39 @@
   &-img {
     margin: 0 0 0 8px;
     stroke: var(--color-text-primary);
+  }
+}
+
+.burger-menu {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: inline-block;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    margin: 0 0 0 24px;
+    background: inherit;
+    border: 2px solid var(--color-border-inverse);
+    border-radius: 50%;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 16px;
+      height: 2px;
+      background: var(--color-border-inverse);
+      transform: translate( -50%, 0);
+    }
+
+    &::before {
+      top: 15px;
+    }
+
+    &::after {
+      top: 24px;
+    }
   }
 }

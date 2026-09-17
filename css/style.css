@@ -399,3 +399,61 @@ button {
     top: 24px;
   }
 }
+
+.text-dedicated {
+  font-style: italic;
+  color: var(--color-text-accent);
+}
+
+.section-title {
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 105%;
+}
+@media (max-width: 680px) {
+  .section-title {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 115%;
+  }
+}
+.section-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.hero {
+  color: var(--color-text-inverse);
+}
+.hero-container {
+  padding: 100px;
+  background: url(../img/img-hero.jpg) center center no-repeat;
+  border-radius: 30px;
+}
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 100px 60px;
+  }
+}
+@media (max-width: 680px) {
+  .hero-container {
+    padding: 60px 16px;
+  }
+}
+.hero-content {
+  max-width: 530px;
+}
+.hero-text {
+  margin: 0 0 40px 0;
+}
+.hero-btn {
+  display: inline-block;
+  padding: 20px 78px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: var(--color-text-primary);
+  background: var(--color-bg-page);
+  border-radius: 33px;
+}

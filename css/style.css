@@ -564,3 +564,60 @@ button {
 .slider-paginator > div::after {
   left: 50px;
 }
+
+.about-title {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+@media (max-width: 600px) {
+  .about-title {
+    font-size: 32px;
+  }
+}
+.about-photos {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+@media (max-width: 960px) {
+  .about-photos {
+    gap: 20px;
+  }
+}
+.about-column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+@media (max-width: 960px) {
+  .about-column {
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .about-column_2 {
+    display: none;
+  }
+}
+.about-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.about-photo:hover > img {
+  scale: 1;
+}
+.about-photo > img {
+  max-width: 100%;
+  scale: 1.1;
+  transition: all 0.3s ease;
+}
+.about-photo_1, .about-photo_4 {
+  max-height: 590px;
+}
+.about-photo_2, .about-photo_3 {
+  max-height: 430px;
+}

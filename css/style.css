@@ -203,6 +203,9 @@ summary {
 
 body {
   font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
   color: var(--color-text-primary);
   background: var(--color-bg-page);
   transition: 0.5s;
@@ -210,9 +213,7 @@ body {
 
 a,
 button {
-  font-size: 16px;
   font-weight: 600;
-  line-height: 150%;
   color: inherit;
   text-decoration: none;
 }
@@ -471,4 +472,81 @@ button {
   width: 20px;
   margin: 0 0 0 8px;
   opacity: 1;
+}
+
+.favorite-title {
+  text-align: center;
+}
+
+.slider-items {
+  justify-content: space-between;
+  align-items: center;
+}
+.slider-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: var(--color-bg-page);
+  border: 2px solid var(--color-bg-container);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.slider-btn:hover {
+  background: var(--color-bg-container);
+}
+.slider-btn:hover .slider-arrow {
+  stroke: var(--color-bg-page);
+}
+.slider-arrow {
+  stroke: var(--color-bg-container);
+  transition: all 0.3s ease;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 480px;
+}
+.slide-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+.slide-text {
+  text-align: center;
+}
+.slide-price {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.slider-paginator {
+  justify-content: center;
+}
+.slider-paginator > div {
+  position: relative;
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-border-primary);
+}
+.slider-paginator > div::before, .slider-paginator > div::after {
+  position: absolute;
+  content: "";
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-border-primary);
+}
+.slider-paginator > div::before {
+  left: -50px;
+  background: var(--color-border-inverse);
+}
+.slider-paginator > div::after {
+  left: 50px;
 }

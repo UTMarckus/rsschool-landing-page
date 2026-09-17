@@ -94,6 +94,11 @@
   &-items {
     justify-content: space-between;
     align-items: center;
+
+    
+    @media (max-width: 660px) {
+      justify-content: center;
+    }
   }
 
   &-btn {
@@ -103,13 +108,17 @@
     width: 60px;
     height: 60px;
     background: var(--color-bg-page);
-    border: 2px solid var(--color-bg-container);
+    border: 2px solid var(--color-text-primary);
     border-radius: 50%;
     transition: all 0.3s ease;
     cursor: pointer;
+
+    @media (max-width: 660px) {
+      display: none;
+    }
     
     &:hover {
-      background: var(--color-bg-container);
+      background: var(--color-text-primary);
 
       .slider-arrow {
         stroke: var(--color-bg-page);
@@ -119,7 +128,7 @@
   }
 
   &-arrow {
-    stroke: var(--color-bg-container);
+    stroke: var(--color-text-primary);
     transition: all 0.3s ease;
   }
 }
@@ -129,6 +138,11 @@
   flex-direction: column;
   align-items: center;
   max-width: 480px;
+
+  &-img {
+    max-width:100%; 
+    height:auto;
+  }
 
   &-title {
     font-size: 24px;

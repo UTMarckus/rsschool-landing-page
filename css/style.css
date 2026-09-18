@@ -713,3 +713,125 @@ button {
   font-weight: 600;
   line-height: 140%;
 }
+
+.footer {
+  margin: 0 0 40px 0;
+}
+.footer-container {
+  display: flex;
+  color: var(--color-text-inverse);
+  background: var(--color-bg-container);
+  border-radius: 40px;
+  padding: 100px;
+}
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 100px 60px;
+  }
+}
+@media (max-width: 490px) {
+  .footer-container {
+    padding: 60px 16px;
+  }
+}
+.footer-content {
+  width: 50%;
+}
+@media (max-width: 900px) {
+  .footer-content {
+    width: auto;
+  }
+}
+.footer-title {
+  max-width: 530px;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+@media (max-width: 900px) {
+  .footer-title {
+    width: auto;
+  }
+}
+@media (max-width: 600px) {
+  .footer-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .social-media {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+.social-media-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 20px 0 0;
+  border: 2px solid var(--color-text-inverse);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.social-media-link:hover {
+  background: var(--color-bg-page);
+  border-color: var(--color-bg-page);
+}
+.social-media-link:hover > .social-media-img {
+  stroke: var(--color-text-primary);
+}
+.social-media-img {
+  stroke: var(--color-text-inverse);
+  transition: all 0.3s ease;
+}
+
+.contacts {
+  padding: 55px 0 0 100px;
+}
+@media (max-width: 900px) {
+  .contacts {
+    padding: 40px 0 0 0;
+  }
+}
+.contacts-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+.contacts-link {
+  display: block;
+  position: relative;
+  margin: 0 0 16px 0;
+  padding: 0 0 0 30px;
+}
+.contacts-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: var(--color-text-inverse);
+  transition: all 0.3s ease;
+}
+.contacts-link:hover::after {
+  left: 0;
+  width: 100%;
+}
+.contacts-link-map {
+  background: url(../img/svg/pin-alt.svg) left center no-repeat;
+}
+.contacts-link-tel {
+  background: url(../img/svg/phone.svg) left center no-repeat;
+}
+.contacts-time {
+  margin: 0;
+  padding: 0 0 0 30px;
+  background: url(../img/svg/clock.svg) left center no-repeat;
+}

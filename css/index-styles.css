@@ -285,13 +285,14 @@ button {
   border-radius: 33px;
   transition: all 0.3s ease;
 }
-.hero-btn > img {
+.hero-btn > svg {
   width: 0;
   margin: 0 0 0 8px;
+  stroke: var(--color-text-primary);
   opacity: 0;
   transition: all 0.3s ease;
 }
-.hero-btn:hover > img {
+.hero-btn:hover > svg {
   width: 20px;
   margin: 0 0 0 8px;
   opacity: 1;

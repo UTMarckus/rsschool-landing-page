@@ -60,15 +60,16 @@
     border-radius: 33px;
     transition: all 0.3s ease;
     
-    &>img {
+    &>svg {
       width: 0;
       margin: 0 0 0 8px;
+      stroke: var(--color-text-primary);
       opacity: 0;
       transition: all 0.3s ease;
     }
 
     &:hover {
-      &>img {
+      &>svg {
       width: 20px;
       margin: 0 0 0 8px;
       opacity: 1;

@@ -22,10 +22,57 @@
 
   &-cards {
     display: flex;
+    justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
     padding: 20px 0;
+  }
 
+  &-card {
+    @media (max-width: 800px) {
+      &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(7),
+      &:nth-child(8) {
+        display: none;
+      }
+    }
+  }
+
+  &-refresh {
+
+    &-btn {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      background: inherit;
+      border: 2px solid var(--color-border-inverse);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+
+      @media (max-width: 800px) {
+        display: flex;
+      }
+    }
+
+    &-img {
+      stroke: var(--color-text-primary);
+      transition: all 0.3s ease;
+    }
+
+    &-btn:hover {
+      background: var(--color-bg-container);
+      border-color: var(--color-bg-container);
+
+      &>svg {
+        stroke: var(--color-text-primary);
+      }
+    }
   }
 }
 

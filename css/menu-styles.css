@@ -248,9 +248,45 @@ button {
 }
 .menu-cards {
   display: flex;
+  justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
   padding: 20px 0;
+}
+@media (max-width: 800px) {
+  .menu-card:nth-child(5), .menu-card:nth-child(6), .menu-card:nth-child(7), .menu-card:nth-child(8) {
+    display: none;
+  }
+}
+.menu-refresh-btn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  background: inherit;
+  border: 2px solid var(--color-border-inverse);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+@media (max-width: 800px) {
+  .menu-refresh-btn {
+    display: flex;
+  }
+}
+.menu-refresh-img {
+  stroke: var(--color-text-primary);
+  transition: all 0.3s ease;
+}
+.menu-refresh-btn:hover {
+  background: var(--color-bg-container);
+  border-color: var(--color-bg-container);
+}
+.menu-refresh-btn:hover > svg {
+  stroke: var(--color-text-primary);
 }
 
 .btn {

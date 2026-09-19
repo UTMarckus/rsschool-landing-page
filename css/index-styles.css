@@ -251,8 +251,8 @@ button {
   color: var(--color-text-inverse);
 }
 .hero-container {
+  position: relative;
   padding: 100px;
-  background: url(../img/img-hero.jpg) center center no-repeat;
   border-radius: 30px;
 }
 @media (max-width: 768px) {
@@ -264,6 +264,16 @@ button {
   .hero-container {
     padding: 60px 16px;
   }
+}
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .hero-content {
   max-width: 530px;

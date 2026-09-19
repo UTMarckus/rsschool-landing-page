@@ -64,3 +64,8 @@ button {
   display: flex;
   flex-direction: row;
 }
+
+.text-dedicated {
+  font-style: italic;
+  color: var(--color-text-accent);
+}

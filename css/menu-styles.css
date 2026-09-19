@@ -65,6 +65,11 @@ button {
   flex-direction: row;
 }
 
+.text-dedicated {
+  font-style: italic;
+  color: var(--color-text-accent);
+}
+
 .header-container {
   align-items: center;
   padding: 20px 0;
@@ -222,6 +227,115 @@ button {
   .burger-menu::after {
     top: 24px;
   }
+}
+
+.menu-title {
+  margin: 20px 0 40px;
+  padding: 0 160px;
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 105%;
+  text-align: center;
+}
+.menu-content {
+  margin: 20px 0;
+}
+.menu-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.menu-cards {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: inherit;
+  border: 2px solid var(--color-border-primary);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn_active {
+  color: var(--color-bg-page);
+  background: var(--color-bg-container);
+  border-color: var(--color-bg-container);
+  cursor: default;
+}
+.btn_active .btn-img {
+  background-color: var(--color-bg-page);
+}
+.btn-img {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-border-primary);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.btn-img_coffee {
+  background-image: url(../img/coffee.png);
+}
+.btn-img_tea {
+  background-image: url(../img/tea.png);
+}
+.btn-img_dessert {
+  background-image: url(../img/dessert.png);
+}
+.btn:hover {
+  color: var(--color-bg-page);
+  background: var(--color-bg-container);
+  border-color: var(--color-bg-container);
+}
+.btn:hover .btn-img {
+  background-color: var(--color-bg-page);
+}
+.btn-txt {
+  margin: 0 8px;
+}
+
+.card {
+  width: 310px;
+  border: 2px solid var(--color-border-primary);
+  border-radius: 27px;
+  cursor: pointer;
+}
+.card:hover img {
+  scale: 1;
+}
+.card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.card-img > img {
+  scale: 1.1;
+  transition: all 0.3s ease;
+}
+.card-content {
+  padding: 20px 10px;
+}
+.card-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+.card-price {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
 }
 
 .footer {

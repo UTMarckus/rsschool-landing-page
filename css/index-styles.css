@@ -65,6 +65,11 @@ button {
   flex-direction: row;
 }
 
+.text-dedicated {
+  font-style: italic;
+  color: var(--color-text-accent);
+}
+
 .header-container {
   align-items: center;
   padding: 20px 0;
@@ -222,11 +227,6 @@ button {
   .burger-menu::after {
     top: 24px;
   }
-}
-
-.text-dedicated {
-  font-style: italic;
-  color: var(--color-text-accent);
 }
 
 .section-title {

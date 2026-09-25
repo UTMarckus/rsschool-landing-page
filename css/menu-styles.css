@@ -237,6 +237,19 @@ button {
   line-height: 105%;
   text-align: center;
 }
+@media (max-width: 768px) {
+  .menu-title {
+    font-size: 60px;
+    line-height: 125%;
+    padding: 0 40px;
+  }
+}
+@media (max-width: 560px) {
+  .menu-title {
+    font-size: 32px;
+    padding: 0 20px;
+  }
+}
 .menu-content {
   margin: 20px 0;
 }
@@ -245,6 +258,11 @@ button {
   justify-content: center;
   align-items: center;
   gap: 16px;
+}
+@media (max-width: 400px) {
+  .menu-categories {
+    gap: 10px;
+  }
 }
 .menu-cards {
   display: flex;

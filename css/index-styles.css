@@ -205,8 +205,8 @@ button {
   .burger-menu {
     display: inline-block;
     position: relative;
-    width: 44px;
-    height: 44px;
+    width: 43px;
+    height: 43px;
     margin: 0 0 0 24px;
     background: inherit;
     border: 2px solid var(--color-border-inverse);

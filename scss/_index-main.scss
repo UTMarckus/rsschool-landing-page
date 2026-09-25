@@ -272,8 +272,8 @@
 .app {
 
   &-container {
-    padding: 144px 0;
-    background: url(../img/mobile-screens.png) right 30px / auto 100%  no-repeat;
+    padding: 150px 0;
+    background: url(../img/mobile-screens.png) right center / auto 100%  no-repeat;
   
     @media (max-width: 1200px) {
       background-size: auto 60%;  
@@ -283,11 +283,17 @@
     @media (max-width: 950px) {
       padding: 20px 0 600px 0;
       background-position: center bottom;
+      background-size: 600px auto;
+    }
+
+    @media (max-width: 768px) {
+      padding: 20px 0 80% 0;
+      background-position: center bottom;
+      background-size: 80% auto;
     }
 
     @media (max-width: 650px) {
-      padding: 10px 0 92% 0;
-      background-size: 100% auto;
+      padding: 10px 0 80% 0;
     }
   }
 
@@ -300,6 +306,10 @@
 
     @media (max-width: 950px) {
       margin: 0 auto;
+    }
+
+    @media (max-width: 570px) {
+      padding: 0 20px;
     }
   }
 

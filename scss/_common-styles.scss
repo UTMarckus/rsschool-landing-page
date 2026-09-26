@@ -34,6 +34,10 @@ body {
   color: var(--color-text-primary);
   background: var(--color-bg-page);
   transition: 0.5s;
+
+  &._lock {
+    overflow-y: hidden;
+  }
 }
 
 a,

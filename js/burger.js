@@ -7,6 +7,10 @@ burgerButton.addEventListener('click', onBurgerClick);
 
 menuNav.addEventListener('click', onMenuClick);
 
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && document.body.classList.contains('_lock')) onMenuClick();
+});
+
 function onBurgerClick(event) {
   burgerButton.classList.toggle('_open');
   menuNav.classList.toggle('_open');

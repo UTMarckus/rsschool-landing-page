@@ -139,6 +139,8 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   width: 310px;
   border: 2px solid var(--color-border-primary);
   border-radius: 27px;
@@ -170,6 +172,9 @@
   }
 
   &-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     padding: 20px 10px;
   }
 
@@ -178,6 +183,10 @@
     font-size: 24px;
     font-weight: 600;
     line-height: 125%;
+  }
+
+  &-txt {
+    flex-grow: 1;
   }
 
   &-price {

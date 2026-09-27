@@ -399,6 +399,8 @@ button {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   width: 310px;
   border: 2px solid var(--color-border-primary);
   border-radius: 27px;
@@ -424,6 +426,9 @@ button {
   transition: all 0.3s ease;
 }
 .card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 20px 10px;
 }
 .card-title {
@@ -431,6 +436,9 @@ button {
   font-size: 24px;
   font-weight: 600;
   line-height: 125%;
+}
+.card-txt {
+  flex-grow: 1;
 }
 .card-price {
   margin: 0;

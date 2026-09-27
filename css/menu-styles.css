@@ -318,11 +318,6 @@ button {
   flex-wrap: wrap;
   padding: 20px 0;
 }
-@media (max-width: 800px) {
-  .menu-card:nth-child(5), .menu-card:nth-child(6), .menu-card:nth-child(7), .menu-card:nth-child(8) {
-    display: none;
-  }
-}
 .menu-refresh-btn {
   display: none;
   justify-content: center;
@@ -408,6 +403,11 @@ button {
   border: 2px solid var(--color-border-primary);
   border-radius: 27px;
   cursor: pointer;
+}
+@media (max-width: 800px) {
+  .card-hidden {
+    display: none;
+  }
 }
 .card:hover img {
   scale: 1;

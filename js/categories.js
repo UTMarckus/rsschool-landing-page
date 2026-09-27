@@ -81,7 +81,6 @@ function renderCategory(data) {
 
     clearCardsContainer();
     cardsContainer.append(container);
-    console.log(items.length);
     if (items.length <= 4) {
       refreshBtn.style.display = 'none';
     } else {

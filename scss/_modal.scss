@@ -1,0 +1,239 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: var(--color-bg-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+
+  &._open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &-card {
+    display: flex;
+    position: relative;
+    width: 800px;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 16px;
+    background: var(--color-bg-page);
+    border-radius: 40px;
+    overflow: hidden;
+
+    @media (max-width: 560px) {
+      flex-direction: column;
+    }
+  }
+
+  &-close-btn {
+    margin: 20px 0 0 0;
+    padding: 10px;
+    background: inherit;
+    border: 2px solid var(--color-border-inverse);
+    border-radius: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--color-bg-page);
+      background-color: var(--color-border-inverse);
+    }
+  }
+
+  &-img {
+    max-width: 310px;
+    max-height: 310px;
+    border-radius: 24px;
+    overflow: hidden;
+
+    & > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      width: 264px;
+    }
+
+    @media (max-width: 560px) {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 0 0 20px;
+    overflow-y: auto;
+
+    @media (max-width: 768px) {
+      padding: 24px;
+    }
+  }
+
+  &-title {
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 125%;
+
+    @media (max-width: 560px) {
+      font-size: 32px;
+    }
+  }
+
+  &-txt {
+    margin: 0 0 20px 0;
+  }
+
+  &-option {
+    margin: 0 0 20px 0;
+
+    &-title {
+      margin: 0 0 8px 0;
+    }
+  }
+
+  &-size-list,
+  &-additives-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &-size-btn {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-size: 14px;
+    background: inherit;
+    border: 2px solid var(--color-border-primary);
+    border-radius: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &>span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      margin: 0 5px 0 0;
+      text-transform: uppercase;
+      color: var(--color-bg-page);
+      background: var(--color-border-inverse);
+      border-radius: 50%;
+    }
+
+    &:hover,
+    &_active {
+      color: var(--color-bg-page);
+      background: var(--color-border-inverse);
+      border-color: var(--color-border-inverse);
+
+      &>span {
+        color: var(--color-border-inverse);
+        background: var(--color-bg-page);
+      }
+    }
+
+    &_active {
+      cursor: default;
+    }
+  }
+
+  &-additive-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background: inherit;
+    border: 2px solid var(--color-border-primary);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover,
+    &_active {
+      color: var(--color-bg-page);
+      background: var(--color-border-inverse);
+      border-color: var(--color-border-inverse);
+
+      .modal-additive-num {
+        color: var(--color-border-inverse);
+        background: var(--color-bg-page);
+      }
+    }
+
+    &_active {
+      cursor: default;
+    }
+  }
+
+  &-additive-num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-border-primary);
+    transition: all 0.3s ease;
+  }
+
+  &-additive-txt {
+    margin: 0 8px;
+  }
+
+  &-total {
+    display: flex;
+    justify-content: space-between;
+    margin: auto 0 0 0;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+
+  &-info {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    margin: 30px 0 0 0;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 140%;
+
+    &>p {
+      margin: 0 0 0 10px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -10px;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-border-primary);
+    }
+  }
+}
+
+[data-theme="dark"] {
+  .modal-window {
+    background: var(--color-bg-container);
+  }
+}

@@ -1,3 +1,5 @@
+'use strict';
+
 const toggleSwitch = document.querySelector('#theme-checkbox');
 const logoImg = document.querySelector(".logo-img");
 

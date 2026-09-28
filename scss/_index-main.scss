@@ -104,6 +104,7 @@
 
     
     @media (max-width: 660px) {
+      flex-wrap: wrap;
       justify-content: center;
     }
   }
@@ -121,7 +122,13 @@
     cursor: pointer;
 
     @media (max-width: 660px) {
-      display: none;
+      margin: 0 70px 20px;
+      order: 2;
+    }
+
+    @media (max-width: 450px) {
+      margin: 0 40px 20px;
+      order: 2;
     }
     
     &:hover {
@@ -130,7 +137,6 @@
       .slider-arrow {
         stroke: var(--color-bg-page);
       }
-
     }
   }
 
@@ -138,16 +144,57 @@
     stroke: var(--color-text-primary);
     transition: all 0.3s ease;
   }
+
+  &-container {
+    max-width: 480px;
+    overflow: hidden;
+
+    @media (max-width: 560px) {
+      max-width: 340px;
+    }
+  }
+
+  &-slides {
+    display: flex;
+    position: relative;
+    align-items: stretch;
+    transition: all 1s ease;
+  }
+
+  &-slide {
+    flex: 0 0 480px;
+
+    @media (max-width: 560px) {
+      flex: 0 0 340px;
+    }
+  }
+
+  &-paginator {
+    justify-content: center;
+  }
+
+  &-page {
+    width: 40px;
+    height: 4px;
+    margin: 0 5px;
+    border-radius: 2px;
+    background: var(--color-border-primary);
+    transition: all 1s ease;
+
+    &_active {
+      background: var(--color-border-inverse);
+    }
+  }
 }
 
 .slide {
   display: flex;
   flex-direction: column;
+  justify-content: stretch;
   align-items: center;
-  max-width: 480px;
 
   &-img {
-    max-width:100%; 
+    max-width:100%;
     height:auto;
   }
 
@@ -165,38 +212,6 @@
     font-size: 24px;
     font-weight: 600;
     line-height: 125%;
-  }
-}
-
-.slider-paginator {
-  justify-content: center;
-
-  &>div {
-    position: relative;
-    width: 40px;
-    height: 4px;
-    border-radius: 2px;
-    background: var(--color-border-primary);
-
-    &::before,
-    &::after {
-      position: absolute;
-      content: '';
-      width: 40px;
-      height: 4px;
-      border-radius: 2px;
-      background: var(--color-border-primary);
-    }
-
-    &::before {
-      left: -50px;
-      background: var(--color-border-inverse);
-    }
-
-    &::after {
-      left: 50px;
-    }
-
   }
 }
 

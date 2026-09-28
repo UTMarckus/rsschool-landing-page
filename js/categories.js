@@ -6,7 +6,7 @@ async function loadJSON(callback) {
     const data = await response.json();
     callback(data);
   } catch (error) {
-    console.error('Ошибка:', error);
+    console.error('Error:', error);
   }
 }
 
@@ -24,7 +24,19 @@ function renderCategory(data) {
   const cardsContainer = document.querySelector('.menu-cards');
   const refreshBtn = document.querySelector('.menu-refresh-btn');
 
+  const modal = document.querySelector('.modal');
+  const modalCloseBtn = document.querySelector('.modal-close-btn');
+  const modalImg = document.querySelector('.modal-img');
+  const modalTitle = document.querySelector('.modal-title');
+  const modalTxt = document.querySelector('.modal-txt');
+  const modalSizeList = document.querySelector('.modal-size-list');
+  const modalAdditivesList = document.querySelector('.modal-additives-list');
+  const modalPrice = document.querySelector('.modal-price');
+
   let currentCategory = 0;
+  let currentItem = null;
+  let selectedSize = null;
+  let selectedAdditives = [];
 
   setActiveCategory();
   addCards()
@@ -32,6 +44,16 @@ function renderCategory(data) {
   categoriesButtons.addEventListener('click', changeCurrentCategory);
 
   refreshBtn.addEventListener('click', refreshCards);
+
+  modal.addEventListener('click', closeModalByOverlay);
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('_open')) closeModal();
+  });
+
+  modalCloseBtn.addEventListener('click', closeModal);
+  modalSizeList.addEventListener('click', changeSize);
+  modalAdditivesList.addEventListener('click', changeAdditives);
 
   function setActiveCategory() {
     switch (currentCategory) {
@@ -122,6 +144,8 @@ function renderCategory(data) {
 
     card.append(cardContent);
 
+    card.addEventListener('click', () => openModal(item));
+
     return card;
   }
 
@@ -132,5 +156,123 @@ function renderCategory(data) {
         card.classList.toggle('card-hidden')
       );
     }
+  }
+
+  function openModal(item) {
+    currentItem = item;
+    selectedSize = Object.keys(item.sizes)[0];
+    selectedAdditives = [];
+
+    modalTitle.textContent = item.name;
+    modalTxt.textContent = item.description;
+
+    renderModalImg();
+    renderSizeOptions();
+    renderAdditivesOptions();
+    updateTotalPrice();
+
+    modal.classList.add('_open');
+    document.body.classList.add('_lock');
+  }
+
+  function closeModal() {
+    modal.classList.remove('_open');
+    document.body.classList.remove('_lock');
+  }
+
+  function closeModalByOverlay(event) {
+    if (event.target === modal) closeModal();
+  }
+
+  function renderModalImg() {
+    const img = document.createElement('img');
+    img.src = currentItem.image;
+    img.alt = currentItem.name;
+
+    modalImg.innerHTML = '';
+    modalImg.append(img);
+  }
+
+  function renderSizeOptions() {
+    const container = new DocumentFragment();
+
+    Object.keys(currentItem.sizes).forEach((size) => {
+      const sizeBtn = document.createElement('button');
+      sizeBtn.classList.add('modal-size-btn');
+      sizeBtn.dataset.size = size;
+      sizeBtn.innerHTML = `<span>${size}</span>${currentItem.sizes[size].size}`;
+      if (size === selectedSize) sizeBtn.classList.add('modal-size-btn_active');
+      container.append(sizeBtn);
+    });
+
+    modalSizeList.innerHTML = '';
+    modalSizeList.append(container);
+  }
+
+  function renderAdditivesOptions() {
+    const container = new DocumentFragment();
+
+    currentItem.additives.forEach((additive, index) => {
+      const additiveBtn = document.createElement('button');
+      additiveBtn.classList.add('modal-additive-btn');
+      additiveBtn.dataset.name = additive.name;
+
+      const additiveNum = document.createElement('span');
+      additiveNum.classList.add('modal-additive-num');
+      additiveNum.textContent = index + 1;
+      additiveBtn.append(additiveNum);
+
+      const additiveTxt = document.createElement('span');
+      additiveTxt.classList.add('modal-additive-txt');
+      additiveTxt.textContent = additive.name;
+      additiveBtn.append(additiveTxt);
+
+      container.append(additiveBtn);
+    });
+
+    modalAdditivesList.innerHTML = '';
+    modalAdditivesList.append(container);
+  }
+
+  function changeSize(event) {
+    const sizeBtn = event.target.closest('.modal-size-btn');
+    if (!sizeBtn) return;
+
+    selectedSize = sizeBtn.dataset.size;
+
+    modalSizeList.querySelectorAll('.modal-size-btn').forEach((btn) => {
+      btn.classList.toggle('modal-size-btn_active', btn === sizeBtn);
+    });
+
+    updateTotalPrice();
+  }
+
+  function changeAdditives(event) {
+    const additiveBtn = event.target.closest('.modal-additive-btn');
+    if (!additiveBtn) return;
+
+    const additiveName = additiveBtn.dataset.name;
+
+    if (selectedAdditives.includes(additiveName)) {
+      selectedAdditives = selectedAdditives.filter((name) => name !== additiveName);
+    } else {
+      selectedAdditives.push(additiveName);
+    }
+
+    additiveBtn.classList.toggle('modal-additive-btn_active');
+    updateTotalPrice();
+  }
+
+  function updateTotalPrice() {
+    let total = Number(currentItem.price);
+    total += Number(currentItem.sizes[selectedSize]['add-price']);
+
+    currentItem.additives.forEach((additive) => {
+      if (selectedAdditives.includes(additive.name)) {
+        total += Number(additive['add-price']);
+      }
+    });
+
+    modalPrice.textContent = `$${total.toFixed(2)}`;
   }
 }
